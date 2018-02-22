@@ -23,21 +23,21 @@ Idx Name          Size      VMA       LMA       File off  Algn
                   ALLOC
   9 .ARM.attributes 00000030  00000000  00000000  00020004  2**0
                   CONTENTS, READONLY
- 10 .debug_info   00002e44  00000000  00000000  00020034  2**0
+ 10 .debug_info   00002e3c  00000000  00000000  00020034  2**0
                   CONTENTS, READONLY, DEBUGGING
- 11 .debug_abbrev 00000a25  00000000  00000000  00022e78  2**0
+ 11 .debug_abbrev 00000a2e  00000000  00000000  00022e70  2**0
                   CONTENTS, READONLY, DEBUGGING
- 12 .debug_loc    00000f23  00000000  00000000  0002389d  2**0
+ 12 .debug_loc    00000f23  00000000  00000000  0002389e  2**0
                   CONTENTS, READONLY, DEBUGGING
- 13 .debug_aranges 00000168  00000000  00000000  000247c0  2**3
+ 13 .debug_aranges 00000168  00000000  00000000  000247c8  2**3
                   CONTENTS, READONLY, DEBUGGING
- 14 .debug_ranges 00000240  00000000  00000000  00024928  2**3
+ 14 .debug_ranges 00000240  00000000  00000000  00024930  2**3
                   CONTENTS, READONLY, DEBUGGING
- 15 .debug_line   00001026  00000000  00000000  00024b68  2**0
+ 15 .debug_line   00001026  00000000  00000000  00024b70  2**0
                   CONTENTS, READONLY, DEBUGGING
- 16 .debug_str    000010b9  00000000  00000000  00025b8e  2**0
+ 16 .debug_str    000010b0  00000000  00000000  00025b96  2**0
                   CONTENTS, READONLY, DEBUGGING
- 17 .comment      0000007c  00000000  00000000  00026c47  2**0
+ 17 .comment      0000007c  00000000  00000000  00026c46  2**0
                   CONTENTS, READONLY
  18 .debug_frame  000002d0  00000000  00000000  00026cc4  2**2
                   CONTENTS, READONLY, DEBUGGING
@@ -599,7 +599,7 @@ __STATIC_INLINE void LL_GPIO_TogglePin(GPIO_TypeDef *GPIOx, uint32_t PinMask)
 {
   WRITE_REG(GPIOx->ODR, READ_REG(GPIOx->ODR) ^ PinMask);
  80004c8:	6963      	ldr	r3, [r4, #20]
- 80004ca:	f083 0301 	eor.w	r3, r3, #1
+ 80004ca:	f483 5300 	eor.w	r3, r3, #8192	; 0x2000
  80004ce:	6163      	str	r3, [r4, #20]
  80004d0:	e7fa      	b.n	80004c8 <main+0xd8>
  80004d2:	bf00      	nop

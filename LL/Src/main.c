@@ -102,7 +102,7 @@ int main(void)
 
   /* USER CODE BEGIN 3 */
 
-	  LL_GPIO_TogglePin(GPIOD, LL_GPIO_PIN_0);
+	  LL_GPIO_TogglePin(GPIOD, LL_GPIO_PIN_13);
 
 	  /* teszteleshez irt led villogtato kod
 	  if (LL_GPIO_IsInputPinSet(GPIOA, LL_GPIO_PIN_0)) {
