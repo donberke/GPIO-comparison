@@ -7,8 +7,8 @@ The MIT License (MIT) Copyright (c) 2018 STMicroelectronics
 */
 
 /* Includes */
-#include "stm32f4xx.h"
-#include <gpio_cpp.h>
+#include "stm32f4xx_rcc.h"
+#include "stm32f4xx_gpio.h"
 
 /* Private macro */
 /* Private variables */
@@ -19,10 +19,30 @@ The MIT License (MIT) Copyright (c) 2018 STMicroelectronics
 
 int main(void)
 {
-  int i = 0;
+
+  RCC_AHB1PeriphClockCmd(RCC_AHB1Periph_GPIOD, ENABLE);
+
+  GPIO_InitTypeDef initStruct;
+  initStruct.GPIO_Mode = GPIO_Mode_OUT;
+  initStruct.GPIO_OType = GPIO_OType_PP;
+  initStruct.GPIO_Pin = GPIO_Pin_13;
+  initStruct.GPIO_PuPd = GPIO_PuPd_NOPULL;
+  initStruct.GPIO_Speed = GPIO_Speed_100MHz;
+
+  GPIO_Init(GPIOD, &initStruct);
+
+  GPIO_SetBits(GPIOD, GPIO_Pin_13);
+
+
 
   while (1)
   {
-	i++;
+	  GPIO_ToggleBits(GPIOD, GPIO_Pin_13);
+
+	  for (volatile int i = 0; i < 1000000; i++) {
+
+
+	  }
+
   }
 }
