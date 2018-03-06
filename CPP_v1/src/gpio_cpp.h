@@ -6,6 +6,7 @@
 
 
 class GPIO {
+
 public:
 
 	void inline setBit(uint16_t pin) {
@@ -14,6 +15,10 @@ public:
 
 	void inline resetBit(uint16_t pin) {
 		GPIOD->BSRRH = pin;
+	}
+
+	void inline toggleBit(uint16_t pin) {
+		GPIOD->ODR ^= pin;
 	}
 
 };
