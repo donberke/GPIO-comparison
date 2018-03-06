@@ -9,6 +9,7 @@ The MIT License (MIT) Copyright (c) 2018 STMicroelectronics
 /* Includes */
 #include "stm32f4xx_rcc.h"
 #include "stm32f4xx_gpio.h"
+#include "gpio_cpp.h"
 
 /* Private macro */
 /* Private variables */
@@ -31,18 +32,23 @@ int main(void)
 
   GPIO_Init(GPIOD, &initStruct);
 
-  GPIO_SetBits(GPIOD, GPIO_Pin_13);
+ // GPIO_SetBits(GPIOD, GPIO_Pin_13);
 
-
+  GPIO gpio;
+  volatile int i = 0;
 
   while (1)
   {
-	  GPIO_ToggleBits(GPIOD, GPIO_Pin_13);
-
-	  for (volatile int i = 0; i < 1000000; i++) {
-
+	  gpio.setBit(GPIO_Pin_13);
+	  for (i = 0; i < 1000000; ) {
+		  i++;
 
 	  }
 
+	  gpio.resetBit(GPIO_Pin_13);
+	  for (i = 0; i < 1000000; ) {
+		  i++;
+
+	  }
   }
 }
