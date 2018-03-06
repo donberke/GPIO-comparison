@@ -5,20 +5,25 @@
 #include "stm32f4xx.h"
 
 
-class GPIO {
+class myGPIO {
+	GPIO_TypeDef * GPIO;
 
 public:
 
+	myGPIO(GPIO_TypeDef * GPIOx) : GPIO(GPIOx) {
+
+	}
+
 	void inline setBit(uint16_t pin) {
-		GPIOD->BSRRL = pin;
+		GPIO->BSRRL = pin;
 	}
 
 	void inline resetBit(uint16_t pin) {
-		GPIOD->BSRRH = pin;
+		GPIO->BSRRH = pin;
 	}
 
 	void inline toggleBit(uint16_t pin) {
-		GPIOD->ODR ^= pin;
+		GPIO->ODR ^= pin;
 	}
 
 };

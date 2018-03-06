@@ -34,7 +34,7 @@ int main(void)
 
  // GPIO_SetBits(GPIOD, GPIO_Pin_13);
 
-  GPIO gpio;
+  myGPIO gpio(GPIOD);
   volatile int i = 0;
 
   while (1)
