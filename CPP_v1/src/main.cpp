@@ -17,7 +17,6 @@ The MIT License (MIT) Copyright (c) 2018 STMicroelectronics
 /* Private functions */
 
 
-
 int main(void)
 {
 

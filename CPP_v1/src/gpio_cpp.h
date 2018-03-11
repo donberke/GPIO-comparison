@@ -10,7 +10,7 @@ class myGPIO {
 
 public:
 
-	myGPIO(GPIO_TypeDef * GPIOx) : GPIO(GPIOx) {
+	myGPIO(GPIO_TypeDef* GPIOx) : GPIO(GPIOx) {
 
 	}
 
