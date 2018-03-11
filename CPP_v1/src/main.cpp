@@ -25,7 +25,7 @@ int main(void)
   GPIO_InitTypeDef initStruct;
   initStruct.GPIO_Mode = GPIO_Mode_OUT;
   initStruct.GPIO_OType = GPIO_OType_PP;
-  initStruct.GPIO_Pin = GPIO_Pin_13 | GPIO_Pin_12;
+  initStruct.GPIO_Pin = GPIO_Pin_13;
   initStruct.GPIO_PuPd = GPIO_PuPd_NOPULL;
   initStruct.GPIO_Speed = GPIO_Speed_100MHz;
 
@@ -38,11 +38,7 @@ int main(void)
 
   while (1)
   {
-	  gpio.toggleBit(GPIO_Pin_13 | GPIO_Pin_12);
-	  for (i = 0; i < 1000000; ) {
-		  i++;
-
-	  }
+	  gpio.toggleBit(GPIO_Pin_13);
   }
 }
 
