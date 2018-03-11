@@ -33,11 +33,11 @@ Idx Name          Size      VMA       LMA       File off  Algn
                   CONTENTS, READONLY, DEBUGGING
  14 .debug_ranges 00000240  00000000  00000000  00024930  2**3
                   CONTENTS, READONLY, DEBUGGING
- 15 .debug_line   00001026  00000000  00000000  00024b70  2**0
+ 15 .debug_line   00001027  00000000  00000000  00024b70  2**0
                   CONTENTS, READONLY, DEBUGGING
- 16 .debug_str    000010b0  00000000  00000000  00025b96  2**0
+ 16 .debug_str    000010b0  00000000  00000000  00025b97  2**0
                   CONTENTS, READONLY, DEBUGGING
- 17 .comment      0000007c  00000000  00000000  00026c46  2**0
+ 17 .comment      0000007c  00000000  00000000  00026c47  2**0
                   CONTENTS, READONLY
  18 .debug_frame  000002d0  00000000  00000000  00026cc4  2**2
                   CONTENTS, READONLY, DEBUGGING
@@ -573,36 +573,37 @@ __STATIC_INLINE void LL_AHB1_GRP1_EnableClock(uint32_t Periphs)
   /**/
   GPIO_InitStruct.Pin = LL_GPIO_PIN_13;
  80004b2:	f44f 5300 	mov.w	r3, #8192	; 0x2000
+ 80004b6:	9302      	str	r3, [sp, #8]
   GPIO_InitStruct.Mode = LL_GPIO_MODE_OUTPUT;
-  GPIO_InitStruct.Speed = LL_GPIO_SPEED_FREQ_LOW;
+  GPIO_InitStruct.Speed = LL_GPIO_SPEED_FREQ_VERY_HIGH;
   GPIO_InitStruct.OutputType = LL_GPIO_OUTPUT_PUSHPULL;
   GPIO_InitStruct.Pull = LL_GPIO_PULL_NO;
   LL_GPIO_Init(GPIOD, &GPIO_InitStruct);
- 80004b6:	a902      	add	r1, sp, #8
- 80004b8:	4620      	mov	r0, r4
-  GPIO_InitStruct.Pin = LL_GPIO_PIN_13;
- 80004ba:	9302      	str	r3, [sp, #8]
-  GPIO_InitStruct.Mode = LL_GPIO_MODE_OUTPUT;
- 80004bc:	9603      	str	r6, [sp, #12]
-  GPIO_InitStruct.Speed = LL_GPIO_SPEED_FREQ_LOW;
- 80004be:	9504      	str	r5, [sp, #16]
-  GPIO_InitStruct.OutputType = LL_GPIO_OUTPUT_PUSHPULL;
- 80004c0:	9505      	str	r5, [sp, #20]
-  GPIO_InitStruct.Pull = LL_GPIO_PULL_NO;
- 80004c2:	9506      	str	r5, [sp, #24]
+ 80004b8:	a902      	add	r1, sp, #8
+  GPIO_InitStruct.Speed = LL_GPIO_SPEED_FREQ_VERY_HIGH;
+ 80004ba:	2303      	movs	r3, #3
   LL_GPIO_Init(GPIOD, &GPIO_InitStruct);
- 80004c4:	f7ff fe80 	bl	80001c8 <LL_GPIO_Init>
+ 80004bc:	4620      	mov	r0, r4
+  GPIO_InitStruct.Mode = LL_GPIO_MODE_OUTPUT;
+ 80004be:	9603      	str	r6, [sp, #12]
+  GPIO_InitStruct.Speed = LL_GPIO_SPEED_FREQ_VERY_HIGH;
+ 80004c0:	9304      	str	r3, [sp, #16]
+  GPIO_InitStruct.OutputType = LL_GPIO_OUTPUT_PUSHPULL;
+ 80004c2:	9505      	str	r5, [sp, #20]
+  GPIO_InitStruct.Pull = LL_GPIO_PULL_NO;
+ 80004c4:	9506      	str	r5, [sp, #24]
+  LL_GPIO_Init(GPIOD, &GPIO_InitStruct);
+ 80004c6:	f7ff fe7f 	bl	80001c8 <LL_GPIO_Init>
   *         @arg @ref LL_GPIO_PIN_ALL
   * @retval None
   */
 __STATIC_INLINE void LL_GPIO_TogglePin(GPIO_TypeDef *GPIOx, uint32_t PinMask)
 {
   WRITE_REG(GPIOx->ODR, READ_REG(GPIOx->ODR) ^ PinMask);
- 80004c8:	6963      	ldr	r3, [r4, #20]
- 80004ca:	f483 5300 	eor.w	r3, r3, #8192	; 0x2000
- 80004ce:	6163      	str	r3, [r4, #20]
- 80004d0:	e7fa      	b.n	80004c8 <main+0xd8>
- 80004d2:	bf00      	nop
+ 80004ca:	6963      	ldr	r3, [r4, #20]
+ 80004cc:	f483 5300 	eor.w	r3, r3, #8192	; 0x2000
+ 80004d0:	6163      	str	r3, [r4, #20]
+ 80004d2:	e7fa      	b.n	80004ca <main+0xda>
  80004d4:	e000ed00 	.word	0xe000ed00
  80004d8:	05fa0300 	.word	0x05fa0300
  80004dc:	40020c00 	.word	0x40020c00

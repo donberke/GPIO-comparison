@@ -511,13 +511,13 @@ OUTPUT(LL.elf elf32-littlearm)
  .debug_ranges  0x00000208       0x18 Src\system_stm32f4xx.o
  .debug_ranges  0x00000220       0x20 startup\startup_stm32f407xx.o
 
-.debug_line     0x00000000     0x1026
+.debug_line     0x00000000     0x1027
  .debug_line    0x00000000      0x394 Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_ll_gpio.o
  .debug_line    0x00000394      0x445 Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_ll_utils.o
- .debug_line    0x000007d9      0x3e2 Src\main.o
- .debug_line    0x00000bbb      0x20e Src\stm32f4xx_it.o
- .debug_line    0x00000dc9      0x1de Src\system_stm32f4xx.o
- .debug_line    0x00000fa7       0x7f startup\startup_stm32f407xx.o
+ .debug_line    0x000007d9      0x3e3 Src\main.o
+ .debug_line    0x00000bbc      0x20e Src\stm32f4xx_it.o
+ .debug_line    0x00000dca      0x1de Src\system_stm32f4xx.o
+ .debug_line    0x00000fa8       0x7f startup\startup_stm32f407xx.o
 
 .debug_str      0x00000000     0x10b0
  .debug_str     0x00000000      0x467 Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_ll_gpio.o
