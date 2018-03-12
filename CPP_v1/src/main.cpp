@@ -29,11 +29,12 @@ int main(void)
   initStruct.GPIO_PuPd = GPIO_PuPd_NOPULL;
   initStruct.GPIO_Speed = GPIO_Speed_100MHz;
 
-  GPIO_Init(GPIOD, &initStruct);
+  //GPIO_Init(GPIOD, &initStruct);
 
  // GPIO_SetBits(GPIOD, GPIO_Pin_13);
 
   myGPIO gpio(GPIOD);
+  gpio.init(GPIO_Mode::OUT, GPIO_OType::PP, GPIO_PuPd::NOPULL, GPIO_Speed::S_100MHz, GPIO_Pin_13);
 
   while (1)
   {

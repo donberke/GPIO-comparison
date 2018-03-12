@@ -20,7 +20,7 @@ enum class GPIO_Mode
 /**
   * @brief  GPIO Output type enumeration
   */
-enum class GPIO_OTyoe
+enum class GPIO_OType
 {
   PP = 0x00,
   OD = 0x01
@@ -80,7 +80,7 @@ public:
 		GPIO->ODR ^= pin;
 	}
 
-	void init(GPIO_Mode mode, GPIO_OTyoe type, GPIO_PuPd pupd, GPIO_Speed speed, uint16_t pin);
+	void init(GPIO_Mode mode, GPIO_OType type, GPIO_PuPd pupd, GPIO_Speed speed, uint16_t pin);
 
 };
 
