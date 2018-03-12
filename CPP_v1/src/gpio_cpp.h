@@ -4,34 +4,6 @@
 
 #include "stm32f4xx.h"
 
-
-class myGPIO {
-	GPIO_TypeDef * GPIO;
-
-public:
-
-	myGPIO(GPIO_TypeDef* GPIOx) : GPIO(GPIOx) {
-
-	}
-
-	void inline setBit(uint16_t pin) {
-		GPIO->BSRRL = pin;
-	}
-
-	void inline resetBit(uint16_t pin) {
-		GPIO->BSRRH = pin;
-	}
-
-	void inline toggleBit(uint16_t pin) {
-		GPIO->ODR ^= pin;
-	}
-
-
-
-};
-
-
-
 // ------------------------------------------------------------ ENUM CLASSES ------------------------------------------------------------
 
 /**
@@ -84,5 +56,33 @@ enum class Bit_Action
   SET
 };
 
-// ------------------------------------------------------------ ENDIF ------------------------------------------------------------
+
+// ------------------------------------------------------------ GPIO CLASS ------------------------------------------------------------
+
+class myGPIO {
+	GPIO_TypeDef * GPIO;
+
+public:
+
+	myGPIO(GPIO_TypeDef* GPIOx) : GPIO(GPIOx) {
+
+	}
+
+	void inline setBit(uint16_t pin) {
+		GPIO->BSRRL = pin;
+	}
+
+	void inline resetBit(uint16_t pin) {
+		GPIO->BSRRH = pin;
+	}
+
+	void inline toggleBit(uint16_t pin) {
+		GPIO->ODR ^= pin;
+	}
+
+	void init(GPIO_Mode mode, GPIO_OTyoe type, GPIO_PuPd pupd, GPIO_Speed speed, uint16_t pin);
+
+};
+
+
 #endif
