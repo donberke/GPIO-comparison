@@ -4,6 +4,20 @@
 
 #include "stm32f4xx.h"
 
+// ------------------------------------------------------------ DEFINES ------------------------------------------------------------
+
+// GPIOx memory adresses for the STM32F407VG device, but only uint32_t memory adresses, not casted to GPIO_TypeDef
+
+#define myGPIOA               ( (myGPIO*) ((((uint32_t)0x40000000) + 0x00020000) + 0x0000))
+#define myGPIOB               ( (myGPIO*) ((((uint32_t)0x40000000) + 0x00020000) + 0x0400))
+#define myGPIOC               ( (myGPIO*) ((((uint32_t)0x40000000) + 0x00020000) + 0x0800))
+#define myGPIOD               ( (myGPIO*) ((((uint32_t)0x40000000) + 0x00020000) + 0x0C00))
+#define myGPIOE               ( (myGPIO*) ((((uint32_t)0x40000000) + 0x00020000) + 0x1000))
+#define myGPIOF               ( (myGPIO*) ((((uint32_t)0x40000000) + 0x00020000) + 0x1400))
+#define myGPIOG               ( (myGPIO*) ((((uint32_t)0x40000000) + 0x00020000) + 0x1800))
+#define myGPIOH               ( (myGPIO*) ((((uint32_t)0x40000000) + 0x00020000) + 0x1C00))
+#define myGPIOI               ( (myGPIO*) ((((uint32_t)0x40000000) + 0x00020000) + 0x2000))
+
 // ------------------------------------------------------------ ENUM CLASSES ------------------------------------------------------------
 
 /**
