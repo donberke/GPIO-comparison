@@ -15,24 +15,24 @@ void myGPIO::init(GPIO_Mode mode, GPIO_OType type, GPIO_PuPd pupd, GPIO_Speed sp
 
 	if (currentpin == pos)
 	{
-	  GPIO->MODER  &= ~(GPIO_MODER_MODER0 << (pinpos * 2));
-	  GPIO->MODER |= (((uint32_t)mode) << (pinpos * 2));
+	  MODER  &= ~(GPIO_MODER_MODER0 << (pinpos * 2));
+	  MODER |= (((uint32_t)mode) << (pinpos * 2));
 
 	  if ((mode == GPIO_Mode::OUT) || (mode == GPIO_Mode::AF))
 	  {
 
 		/* Speed mode configuration */
-		GPIO->OSPEEDR &= ~(GPIO_OSPEEDER_OSPEEDR0 << (pinpos * 2));
-		GPIO->OSPEEDR |= ((uint32_t)(speed) << (pinpos * 2));
+		OSPEEDR &= ~(GPIO_OSPEEDER_OSPEEDR0 << (pinpos * 2));
+		OSPEEDR |= ((uint32_t)(speed) << (pinpos * 2));
 
 		/* Output mode configuration*/
-		GPIO->OTYPER  &= ~((GPIO_OTYPER_OT_0) << ((uint16_t)pinpos)) ;
-		GPIO->OTYPER |= (uint16_t)(((uint16_t)type) << ((uint16_t)pinpos));
+		OTYPER  &= ~((GPIO_OTYPER_OT_0) << ((uint16_t)pinpos)) ;
+		OTYPER |= (uint16_t)(((uint16_t)type) << ((uint16_t)pinpos));
 	  }
 
 	  /* Pull-up Pull down resistor configuration*/
-	  GPIO->PUPDR &= ~(GPIO_PUPDR_PUPDR0 << ((uint16_t)pinpos * 2));
-	  GPIO->PUPDR |= (((uint32_t)pupd) << (pinpos * 2));
+	  PUPDR &= ~(GPIO_PUPDR_PUPDR0 << ((uint16_t)pinpos * 2));
+	  PUPDR |= (((uint32_t)pupd) << (pinpos * 2));
 	}
   }
 }

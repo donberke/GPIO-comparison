@@ -73,20 +73,16 @@ class myGPIO {
 
 public:
 
-	myGPIO(GPIO_TypeDef* GPIOx) : GPIO(GPIOx) {
-
-	}
-
 	void inline setBit(uint16_t pin) {
-		GPIO->BSRRL = pin;
+		BSRRL = pin;
 	}
 
 	void inline resetBit(uint16_t pin) {
-		GPIO->BSRRH = pin;
+		BSRRH = pin;
 	}
 
 	void inline toggleBit(uint16_t pin) {
-		GPIO->ODR ^= pin;
+		 ODR ^= pin;
 	}
 
 	void init(GPIO_Mode mode, GPIO_OType type, GPIO_PuPd pupd, GPIO_Speed speed, uint16_t pin);
