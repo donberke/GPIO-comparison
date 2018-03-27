@@ -36,3 +36,13 @@ void myGPIO::init(GPIO_Mode mode, GPIO_OType type, GPIO_PuPd pupd, GPIO_Speed sp
 	}
   }
 }
+
+
+
+
+
+
+
+
+
+
