@@ -22,17 +22,6 @@ int main(void)
 
   RCC_AHB1PeriphClockCmd(RCC_AHB1Periph_GPIOD, ENABLE);
 
-  GPIO_InitTypeDef initStruct;
-  initStruct.GPIO_Mode = GPIO_Mode_OUT;
-  initStruct.GPIO_OType = GPIO_OType_PP;
-  initStruct.GPIO_Pin = GPIO_Pin_13;
-  initStruct.GPIO_PuPd = GPIO_PuPd_NOPULL;
-  initStruct.GPIO_Speed = GPIO_Speed_100MHz;
-
-  //GPIO_Init(GPIOD, &initStruct);
-
- // GPIO_SetBits(GPIOD, GPIO_Pin_13);
-
   myGPIO gpio(GPIOD);
   gpio.init(GPIO_Mode::OUT, GPIO_OType::PP, GPIO_PuPd::NOPULL, GPIO_Speed::S_100MHz, GPIO_Pin_13);
 
