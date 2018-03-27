@@ -8,7 +8,6 @@ The MIT License (MIT) Copyright (c) 2018 STMicroelectronics
 
 /* Includes */
 #include "stm32f4xx_rcc.h"
-#include "stm32f4xx_gpio.h"
 #include "gpio_cpp.h"
 
 /* Private macro */
@@ -22,7 +21,7 @@ int main(void)
 
   RCC_AHB1PeriphClockCmd(RCC_AHB1Periph_GPIOD, ENABLE);
 
-  myGPIO* gpio;
+  myGPIO* gpio = myGPIOD;
   gpio->init(GPIO_Mode::OUT, GPIO_OType::PP, GPIO_PuPd::NOPULL, GPIO_Speed::S_100MHz, GPIO_Pin_13);
 
   while (1)
