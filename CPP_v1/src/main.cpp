@@ -21,8 +21,10 @@ int main(void)
 
   RCC_AHB1PeriphClockCmd(RCC_AHB1Periph_GPIOD, ENABLE);
 
+
   myGPIO* gpio = myGPIOD;
   gpio->init(GPIO_Mode::OUT, GPIO_OType::PP, GPIO_PuPd::NOPULL, GPIO_Speed::S_100MHz, GPIO_Pin_13);
+
 
   while (1)
   {
